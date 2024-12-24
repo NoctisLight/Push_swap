@@ -6,7 +6,7 @@
 /*   By: fben-ham <fben-ham@student.42-angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:50:45 by fben-ham          #+#    #+#             */
-/*   Updated: 2024/12/24 14:25:52 by fben-ham         ###   ########.fr       */
+/*   Updated: 2024/12/24 14:31:47 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,9 @@ stack_a *ft_atoi(stack_a *head, const char *string)
         tmp -> val = nb * sign;
         tmp -> next = NULL;
         head -> next = tmp;
+        return (head);
     }
     else
-    {    ft_printf("Error\n");
-        return (0);
-    }
-    return (head);
+        ft_printf("Error\n");
+    return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: fben-ham <fben-ham@student.42-angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:51:43 by fben-ham          #+#    #+#             */
-/*   Updated: 2024/12/24 14:26:24 by fben-ham         ###   ########.fr       */
+/*   Updated: 2024/12/24 14:31:15 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ int	ft_isnum(char *s) // args control
 void check_ifok(char *all_in_one)
 {
     char **tab;
-    int i = 0;
+    int i;
     stack_a * head;
+    stack_a *first;
+    
     tab = ft_split(all_in_one, ' '); // split each numbers in a tab ready to be send to atoi
-    //ft_printf("%s\n", tab[i]);
     head = malloc(sizeof(stack_a));
-
-    stack_a *first = head;
-    //head->next = NULL;
-    while(tab[i])
+    first = head;
+    i = 0;
+    while(tab[i]) // send each number to atoi  
     {   
         if(ft_atoi(head, tab[i]))
             head = ft_atoi(head, tab[i]);
@@ -50,7 +50,7 @@ void check_ifok(char *all_in_one)
         head = head->next;
         i++;
     }
-    head = first;
+    head = first; // reset head to first
     while(head)
     {
         printf("%d\n", head->val);
