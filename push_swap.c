@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fben-ham <fben-ham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fben-ham <fben-ham@student.42-angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:51:43 by fben-ham          #+#    #+#             */
-/*   Updated: 2024/12/20 13:49:31 by fben-ham         ###   ########.fr       */
+/*   Updated: 2024/12/24 14:26:24 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void check_ifok(char *all_in_one)
     char **tab;
     int i = 0;
     stack_a * head;
-    stack_a * tmp;
     tab = ft_split(all_in_one, ' '); // split each numbers in a tab ready to be send to atoi
     //ft_printf("%s\n", tab[i]);
     head = malloc(sizeof(stack_a));
@@ -42,13 +41,12 @@ void check_ifok(char *all_in_one)
     stack_a *first = head;
     //head->next = NULL;
     while(tab[i])
-    {    
-        
-        tmp = malloc(sizeof(stack_a));
-        tmp -> val = ft_atoi(tab[i]);
-        tmp -> next = NULL;
-        head -> next = tmp;
-        //printf("%d\n", head->val);
+    {   
+        if(ft_atoi(head, tab[i]))
+            head = ft_atoi(head, tab[i]);
+        else{
+            return ;
+        }
         head = head->next;
         i++;
     }

@@ -23,7 +23,7 @@ typedef struct headb{
 } head_b;
 
 int	ft_printf(const char *format, ...);
-int ft_atoi(const char *string);
+stack_a *ft_atoi(stack_a *head, const char *string);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 int	ft_strlen(const char *s);
