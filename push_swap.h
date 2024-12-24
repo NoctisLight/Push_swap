@@ -14,16 +14,14 @@ typedef struct nodeb{
 
 typedef struct heada{
     int head;
-    struct node *nodea;
 } head_a;
 
 typedef struct headb{
     int head;
-    struct node *nodeb;
 } head_b;
 
 int	ft_printf(const char *format, ...);
-stack_a *ft_atoi(stack_a *head, const char *string);
+stack_a *ft_atoi(stack_a *first, stack_a *head, const char *string);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 int	ft_strlen(const char *s);

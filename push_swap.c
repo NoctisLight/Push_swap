@@ -6,7 +6,7 @@
 /*   By: fben-ham <fben-ham@student.42-angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:51:43 by fben-ham          #+#    #+#             */
-/*   Updated: 2024/12/24 14:31:15 by fben-ham         ###   ########.fr       */
+/*   Updated: 2024/12/24 15:57:52 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,6 @@ int	ft_isnum(char *s) // args control
 	{
         if ((s[i] < 48 || s[i] > 57) && s[i] != ' ' && s[i] != '-' && s[i] != '+')
 		    return (0);
-        if (s[i] == '-' && !((s[i-1] == '-' || s[i-1] == ' ') && (s[i+1] == '-' || (s[i+1] >= 48 && s[i+1] <= 57))))
-            return (0);
-        if (s[i] == '+' && !((s[i-1] == '+' || s[i-1] == ' ') && (s[i+1] == '+' || (s[i+1] >= 48 && s[i+1] <= 57))))
-            return (0);
         i++;
     }
 	return (1);
@@ -33,8 +29,9 @@ void check_ifok(char *all_in_one)
 {
     char **tab;
     int i;
-    stack_a * head;
+    stack_a *head;
     stack_a *first;
+    stack_a *new_node;
     
     tab = ft_split(all_in_one, ' '); // split each numbers in a tab ready to be send to atoi
     head = malloc(sizeof(stack_a));
@@ -42,14 +39,16 @@ void check_ifok(char *all_in_one)
     i = 0;
     while(tab[i]) // send each number to atoi  
     {   
-        if(ft_atoi(head, tab[i]))
-            head = ft_atoi(head, tab[i]);
+        new_node = ft_atoi(first, head, tab[i]); // try to create a new node.
+        if(new_node)
+            head = new_node;
         else{
+            ft_printf("Error\n");
             return ;
         }
-        head = head->next;
         i++;
     }
+    first = first->next; // skip the random 0 at the beginning of the list
     head = first; // reset head to first
     while(head)
     {

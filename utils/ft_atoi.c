@@ -6,20 +6,36 @@
 /*   By: fben-ham <fben-ham@student.42-angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:50:45 by fben-ham          #+#    #+#             */
-/*   Updated: 2024/12/24 14:31:47 by fben-ham         ###   ########.fr       */
+/*   Updated: 2024/12/24 15:57:12 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-stack_a *ft_atoi(stack_a *head, const char *string)
+
+int check_doubles(stack_a *first, int nb)
+{
+    stack_a *tmp1;
+
+
+    if(!first)
+        return 0;
+    tmp1 = first;
+    while(tmp1)
+    {
+        if (tmp1->val == nb)
+            return (0);
+        tmp1 = tmp1->next;
+    }
+    return (1);
+}
+
+stack_a *ft_atoi(stack_a *first, stack_a *head, const char *string)
 {
     int nb = 0;
     int sign = 1;
     stack_a *tmp;
 
-    while (*string >= 9 && *string <= 13)
-        string++;
     if (*string == '-' || *string == '+') {
         if (*string == '-')
             sign = -1;
@@ -30,13 +46,15 @@ stack_a *ft_atoi(stack_a *head, const char *string)
             nb = nb * 10 + (*string - '0');
             string++;
         }
-        tmp = malloc(sizeof(stack_a));
-        tmp -> val = nb * sign;
-        tmp -> next = NULL;
-        head -> next = tmp;
-        return (head);
+        if (check_doubles(first, nb))
+        {
+            tmp = malloc(sizeof(stack_a));
+            tmp -> val = nb * sign;
+            tmp -> next = NULL;
+            head -> next = tmp;
+            head = head->next;
+            return (head);
+        }
     }
-    else
-        ft_printf("Error\n");
     return (0);
 }
