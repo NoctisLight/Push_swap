@@ -6,17 +6,17 @@
 /*   By: fben-ham <fben-ham@student.42-angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 16:20:58 by fben-ham          #+#    #+#             */
-/*   Updated: 2024/12/26 17:50:12 by fben-ham         ###   ########.fr       */
+/*   Updated: 2024/12/26 18:34:09 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 
-int list_len(stack_a *first_a)
+int list_len_a(stack_a *first_a) // stack_a used
 {
-    stack_a *tmp1;
     int i;
+    stack_a *tmp1;
 
     if(!first_a)
         return (0);
@@ -30,41 +30,55 @@ int list_len(stack_a *first_a)
     return (i);
 }
 
-stack_a *sa(stack_a *head_a, stack_a *first_a)
+int list_len_b(stack_b *first_b) // stack_b used
 {
-    stack_a *tmp1;
-    int len;
-    int valswap;
-    int i = 0;
+    int i;
+    stack_b *tmp1;
 
-    tmp1 = head_a;
-    len = list_len(first_a);
-    if(len < 2)
-        return head_a;
-    while(len-2 > i)
+    if(!first_b)
+        return (0);
+    tmp1 = first_b;
+    i = 0;
+    while(tmp1)
     {
-        first_a = first_a->next;
         i++;
+        tmp1 = tmp1->next;
     }
-    valswap = first_a -> val; // keep the head-1 val temporarily
-    ft_printf("Valswap Before : %d\n", valswap);
-    ft_printf("Head Before : %d\n", head_a -> val);
-    first_a -> val = head_a -> val;
-    head_a -> val = valswap;
-    ft_printf("Valswap After : %d\n", first_a -> val);
-    ft_printf("Head after : %d\n", head_a -> val);
-    return(head_a);
+    return (i);
 }
 
-stack_a *sb(stack_a *head_b, stack_a *first_b)
+void sa(stack_a **head_a, stack_a *first_a)
 {
     int len;
     int valswap;
     int i = 0;
 
-    len = list_len(first_b);
+    len = list_len_a(first_a);
     if(len < 2)
-        return head_b;
+        return ;
+    while(len-2 > i)
+    {
+        (first_a) = (first_a)->next;
+        i++;
+    }
+    valswap = (first_a)-> val; // keep the head-1 val temporarily
+    ft_printf("Valswap Before : %d\n", valswap);
+    ft_printf("Head Before : %d\n", (*head_a) -> val);
+    (first_a) -> val = (*head_a) -> val;
+    (*head_a) -> val = valswap;
+    ft_printf("Valswap After : %d\n", (first_a) -> val);
+    ft_printf("Head after : %d\n", (*head_a) -> val);
+}
+
+void sb(stack_b **head_b, stack_b *first_b)
+{
+    int len;
+    int valswap;
+    int i = 0;
+
+    len = list_len_b(first_b);
+    if(len < 2)
+        return ;
     while(len-2 > i)
     {
         first_b = first_b->next;
@@ -72,10 +86,15 @@ stack_a *sb(stack_a *head_b, stack_a *first_b)
     }
     valswap = first_b -> val; // keep the head-1 val temporarily
     ft_printf("Valswap Before : %d\n", valswap);
-    ft_printf("Head Before : %d\n", head_b -> val);
-    first_b -> val = head_b -> val;
-    head_b -> val = valswap;
+    ft_printf("Head Before : %d\n", (*head_b) -> val);
+    first_b -> val = (*head_b) -> val;
+    (*head_b) -> val = valswap;
     ft_printf("Valswap After : %d\n", first_b -> val);
-    ft_printf("Head after : %d\n", head_b -> val);
-    return(head_b);
+    ft_printf("Head after : %d\n", (*head_b) -> val);
+}
+
+void ss(stack_a **head_a, stack_a *first_a, stack_b **head_b, stack_b *first_b) // execute both functions
+{
+    sa(head_a, first_a);
+    sb(head_b, first_b);
 }

@@ -6,7 +6,7 @@
 /*   By: fben-ham <fben-ham@student.42-angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:51:43 by fben-ham          #+#    #+#             */
-/*   Updated: 2024/12/26 17:46:52 by fben-ham         ###   ########.fr       */
+/*   Updated: 2024/12/26 18:04:10 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,19 @@ void check_ifok(char *all_in_one)
 {
     char **tab;
     int i;
-    stack_a *head;
+    stack_a *head_a;
     stack_a *first_a;
     stack_a *new_node;
     
     tab = ft_split(all_in_one, ' '); // split each numbers in a tab ready to be send to atoi
-    head = malloc(sizeof(stack_a));
-    first_a = head;
+    head_a = malloc(sizeof(stack_a));
+    first_a = head_a;
     i = 0;
     while(tab[i]) // send each number to atoi  
     {   
-        new_node = ft_atoi(first_a, head, tab[i]); // try to create a new node.
+        new_node = ft_atoi(first_a, head_a, tab[i]); // try to create a new node.
         if(new_node)
-            head = new_node;
+            head_a = new_node;
         else{
             ft_printf("Error\n");
             return ;
@@ -60,12 +60,12 @@ void check_ifok(char *all_in_one)
     // THIS ZONE WILL BE USED TO CHECK IF OUR MOVES ARE WORKING / DO SOME TESTS
     //head = first_a; // reset head to first again to test X move
     ft_printf("\nTest Move :\n\n");
-    head = sa(head, first_a);
-    head = first_a;
-    while(head)
+    sa(&head_a, first_a);
+    head_a = first_a;
+    while(head_a)
     {
-        printf("%d\n", head->val);
-        head = head->next;
+        printf("%d\n", head_a->val);
+        head_a = head_a->next;
     }
 }
 

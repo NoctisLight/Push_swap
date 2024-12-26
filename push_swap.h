@@ -9,7 +9,7 @@ typedef struct nodea{
 
 typedef struct nodeb{
     int val;
-    struct node *next;
+    struct nodeb *next;
 } stack_b;
 
 typedef struct heada{
@@ -26,7 +26,9 @@ char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 int	ft_strlen(const char *s);
 char	**ft_split(char const *s, char c);
-stack_a *sa(stack_a *head_a, stack_a *first_a);
-stack_a *sb(stack_a *head_b, stack_a *first_b);
-int list_len(stack_a *first_a);
+void sa(stack_a **head_a, stack_a *first_a);
+void sb(stack_b **head_b, stack_b *first_b);
+void ss(stack_a **head_a, stack_a *first_a, stack_b **head_b, stack_b *first_b);
+int list_len_a(stack_a *first_a);
+int list_len_b(stack_b *first_b);
 #endif
