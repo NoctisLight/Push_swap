@@ -6,7 +6,7 @@
 /*   By: fben-ham <fben-ham@student.42-angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 16:20:58 by fben-ham          #+#    #+#             */
-/*   Updated: 2024/12/26 18:34:09 by fben-ham         ###   ########.fr       */
+/*   Updated: 2024/12/26 18:38:19 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ void sa(stack_a **head_a, stack_a *first_a)
         i++;
     }
     valswap = (first_a)-> val; // keep the head-1 val temporarily
-    ft_printf("Valswap Before : %d\n", valswap);
-    ft_printf("Head Before : %d\n", (*head_a) -> val);
+    /*ft_printf("Valswap Before : %d\n", valswap);
+    ft_printf("Head Before : %d\n", (*head_a) -> val);*/
     (first_a) -> val = (*head_a) -> val;
     (*head_a) -> val = valswap;
-    ft_printf("Valswap After : %d\n", (first_a) -> val);
-    ft_printf("Head after : %d\n", (*head_a) -> val);
+    /*ft_printf("Valswap After : %d\n", (first_a) -> val);
+    ft_printf("Head after : %d\n", (*head_a) -> val);*/
 }
 
 void sb(stack_b **head_b, stack_b *first_b)
@@ -85,12 +85,12 @@ void sb(stack_b **head_b, stack_b *first_b)
         i++;
     }
     valswap = first_b -> val; // keep the head-1 val temporarily
-    ft_printf("Valswap Before : %d\n", valswap);
-    ft_printf("Head Before : %d\n", (*head_b) -> val);
+    /*ft_printf("Valswap Before : %d\n", valswap);
+    ft_printf("Head Before : %d\n", (*head_b) -> val);*/
     first_b -> val = (*head_b) -> val;
     (*head_b) -> val = valswap;
-    ft_printf("Valswap After : %d\n", first_b -> val);
-    ft_printf("Head after : %d\n", (*head_b) -> val);
+    /*ft_printf("Valswap After : %d\n", first_b -> val);
+    ft_printf("Head after : %d\n", (*head_b) -> val);*/
 }
 
 void ss(stack_a **head_a, stack_a *first_a, stack_b **head_b, stack_b *first_b) // execute both functions

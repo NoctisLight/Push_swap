@@ -6,7 +6,7 @@
 /*   By: fben-ham <fben-ham@student.42-angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:51:43 by fben-ham          #+#    #+#             */
-/*   Updated: 2024/12/26 18:04:10 by fben-ham         ###   ########.fr       */
+/*   Updated: 2024/12/26 18:38:26 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,11 @@ int main(int agc, char **agv)
     int i;
     static char *all_in_one;  // used to create one and unique quote for all agv
 
-    if(agc == 1)
-        return 0;
+    if(agc < 2)
+    {
+        ft_printf("Error\n");
+        return (0);
+    }
     i = 1;
     while(agv[i])
     {
