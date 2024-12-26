@@ -27,5 +27,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 int	ft_strlen(const char *s);
 char	**ft_split(char const *s, char c);
 stack_a *sa(stack_a *head_a, stack_a *first_a);
+stack_a *sb(stack_a *head_b, stack_a *first_b);
 int list_len(stack_a *first_a);
 #endif
