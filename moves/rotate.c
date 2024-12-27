@@ -6,7 +6,7 @@
 /*   By: fben-ham <fben-ham@student.42-angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 14:00:44 by fben-ham          #+#    #+#             */
-/*   Updated: 2024/12/27 14:24:30 by fben-ham         ###   ########.fr       */
+/*   Updated: 2024/12/27 14:26:14 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,10 @@ void rb(stack_b **head_b, stack_b *first_b)
         }   
     }
     return ;
+}
+
+void rr(stack_a **head_a, stack_a *first_a, stack_b **head_b, stack_b *first_b)
+{
+    ra(head_a, first_a);
+    rb(head_b, first_b);
 }
