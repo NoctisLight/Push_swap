@@ -6,7 +6,7 @@
 /*   By: fben-ham <fben-ham@student.42-angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:51:43 by fben-ham          #+#    #+#             */
-/*   Updated: 2024/12/26 18:39:45 by fben-ham         ###   ########.fr       */
+/*   Updated: 2024/12/27 14:20:39 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void check_ifok(char *all_in_one)
     // THIS ZONE WILL BE USED TO CHECK IF OUR MOVES ARE WORKING / DO SOME TESTS
     //head = first_a; // reset head to first again to test X move
     ft_printf("\nTest Move :\n\n");
-    sa(&head_a, first_a);
+    ra(&head_a, first_a);
     head_a = first_a;
     while(head_a)
     {

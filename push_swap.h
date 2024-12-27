@@ -12,13 +12,6 @@ typedef struct nodeb{
     struct nodeb *next;
 } stack_b;
 
-typedef struct heada{
-    int head;
-} head_a;
-
-typedef struct headb{
-    int head;
-} head_b;
 
 int	ft_printf(const char *format, ...);
 stack_a *ft_atoi(stack_a *first, stack_a *head, const char *string);
@@ -31,4 +24,8 @@ void sb(stack_b **head_b, stack_b *first_b);
 void ss(stack_a **head_a, stack_a *first_a, stack_b **head_b, stack_b *first_b);
 int list_len_a(stack_a *first_a);
 int list_len_b(stack_b *first_b);
+void pa(stack_a **head_a, stack_b **head_b, stack_b *first_b);
+void pb(stack_a **head_a, stack_b **head_b, stack_a *first_a);
+void ra(stack_a **head_a, stack_a *first_a);
+
 #endif
