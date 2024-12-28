@@ -6,7 +6,7 @@
 /*   By: fben-ham <fben-ham@student.42-angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 18:53:43 by fben-ham          #+#    #+#             */
-/*   Updated: 2024/12/28 19:50:56 by fben-ham         ###   ########.fr       */
+/*   Updated: 2024/12/28 19:52:32 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void rra(stack_a **head_a, stack_a **first_a)
         // save our first val and delete the node
         tmp = (*first_a) -> val;
         tmp_first = (*first_a) -> next;
-        free(first_a);
+        free((*first_a));
         (*first_a) = tmp_first;
 
         // create a new node with the initial first val
