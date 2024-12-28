@@ -29,5 +29,5 @@ void pb(stack_a **head_a, stack_b **head_b, stack_a *first_a);
 void ra(stack_a **head_a, stack_a *first_a);
 void rb(stack_b **head_b, stack_b *first_b);
 void rr(stack_a **head_a, stack_a *first_a, stack_b **head_b, stack_b *first_b);
-
+void rra(stack_a **head_a, stack_a **first_a);
 #endif
