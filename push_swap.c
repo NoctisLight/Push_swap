@@ -34,17 +34,19 @@ void check_ifok(char *all_in_one)
     stack_a *new_node;
     stack_b *head_b;
     stack_b *first_b;
-    
+    t_data *data;
+    data = malloc(sizeof(t_data));
     tab = ft_split(all_in_one, ' '); // split each numbers in a tab ready to be send to atoi
     head_a = malloc(sizeof(stack_a));
     head_b = malloc(sizeof(stack_b));
     first_a = head_a;
     first_b = head_b;
     
+    data->max = 0;
     i = 0;
     while(tab[i]) // send each number to atoi  
     {   
-        new_node = ft_atoi(first_a, head_a, tab[i]); // try to create a new node.
+        new_node = ft_atoi(first_a, head_a, tab[i], &data); // try to create a new node.
         if(new_node)
             head_a = new_node;
         else{
@@ -90,6 +92,8 @@ void check_ifok(char *all_in_one)
         printf("%d\n", head_b->val);
         head_b = head_b->next;
     }
+    free(tab);
+    ft_printf("\n\nThe highest number is : %d", (*data).max);
 }
 
 int main(int agc, char **agv)

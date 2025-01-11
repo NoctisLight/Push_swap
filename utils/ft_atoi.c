@@ -17,7 +17,6 @@ int check_doubles(stack_a *first, int nb)
 {
     stack_a *tmp1;
 
-
     if(!first)
         return 0;
     tmp1 = first;
@@ -30,7 +29,13 @@ int check_doubles(stack_a *first, int nb)
     return (1);
 }
 
-stack_a *ft_atoi(stack_a *first, stack_a *head, const char *string)
+void highest_number(int num, t_data **data)
+{
+    if (num > (*data)->max)
+        (*data)->max = num;
+}
+
+stack_a *ft_atoi(stack_a *first, stack_a *head, const char *string, t_data **data)
 {
     int nb = 0;
     int sign = 1;
@@ -53,8 +58,11 @@ stack_a *ft_atoi(stack_a *first, stack_a *head, const char *string)
             tmp -> next = NULL;
             head -> next = tmp;
             head = head->next;
+            highest_number(nb, data);
             return (head);
         }
     }
     return (0);
 }
+
+
