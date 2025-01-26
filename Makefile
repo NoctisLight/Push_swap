@@ -1,9 +1,8 @@
-SRCS =  push_swap.c\
-		utils/ft_atoi.c\
-		utils/ft_split.c\
-		utils/ft_strjoin.c\
-		utils/ft_printf/ft_printf.c\
-		utils/ft_printf/ft_printf_utils.c\
+SRCS = $(wildcard *.c) \
+       $(wildcard utils/*.c) \
+       $(wildcard utils/ft_printf/*.c) \
+	   $(wildcard moves/*.c)
+	   
         
 
 OBJS := $(SRCS:.c=.o)
@@ -11,12 +10,12 @@ OBJS := $(SRCS:.c=.o)
 CC := gcc
 FLAGS := -Wall -Werror -Wextra
 
-NAME := push_swap.a
+NAME := push_swap
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar -rc $(NAME) $(OBJS)
+	$(CC)$(OBJS) -o $(NAME) 
 
 %.o : %.c
 	$(CC) $(FLAGS) -c $< -o $@
