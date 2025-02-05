@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fben-ham <fben-ham@student.42-angouleme    +#+  +:+       +#+        */
+/*   By: fben-ham <fben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:51:43 by fben-ham          #+#    #+#             */
-/*   Updated: 2024/12/30 16:57:28 by fben-ham         ###   ########.fr       */
+/*   Updated: 2025/02/05 05:20:04 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,10 @@ void check_ifok(char *all_in_one)
         printf("%d\n", head_a->val);
         head_a = head_a->next;
     }*/
-    ft_printf("\nList B :\n");
+    //ft_printf("\nList B :\n");
     //head_a = first_a;
-    pb(&head_a, &head_b, first_a);
+    ra(&head_a, &first_a);
+    ft_printf("HEAD : %d\n", head_a -> val);
     ft_printf("\nList A :\n");
     head_a = first_a;
     while(head_a)

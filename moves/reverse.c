@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fben-ham <fben-ham@student.42-angouleme    +#+  +:+       +#+        */
+/*   By: fben-ham <fben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 18:53:43 by fben-ham          #+#    #+#             */
-/*   Updated: 2024/12/28 19:57:54 by fben-ham         ###   ########.fr       */
+/*   Updated: 2025/02/05 04:39:55 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,48 +14,43 @@
 
 void rra(stack_a **head_a, stack_a **first_a)
 {
-    int tmp;
-    stack_a *tmp_first;
-    stack_a *new_node;
+    stack_a *save;
 
-    new_node = malloc(sizeof(stack_a));
-    if(list_len_a((*first_a)) > 1)
+    save = (*first_a);
+    if((*first_a)->next)
     {
-        // save our first val and delete the node
-        tmp = (*first_a) -> val;
-        tmp_first = (*first_a) -> next;
-        free((*first_a));
-        (*first_a) = tmp_first;
-
-        // create a new node with the initial first val
-        new_node -> val = tmp;
-        new_node -> next = NULL;
-        (*head_a) -> next = new_node;
-        (*head_a) = (*head_a) -> next;
+        while((*first_a)->next->next) // Until last-1
+        {
+            (*first_a) = (*first_a)->next;
+        }
+        (*first_a) -> next = NULL; // set the head-1 to null
+        (*head_a) -> next = save;
+        save = (*head_a);
+        (*head_a) = (*first_a); // ok
+        (*first_a) = save;
     }
+    return ;
+        
 }
 
 void rrb(stack_b **head_b, stack_b **first_b)
 {
-    int tmp;
-    stack_b *tmp_first;
-    stack_b *new_node;
+    stack_b *save;
 
-    new_node = malloc(sizeof(stack_b));
-    if(list_len_b((*first_b)) > 1)
+    save = (*first_b);
+    if((*first_b)->next)
     {
-        // save our first val and delete the node
-        tmp = (*first_b) -> val;
-        tmp_first = (*first_b) -> next;
-        free((*first_b));
-        (*first_b) = tmp_first;
-
-        // create a new node with the initial first val
-        new_node -> val = tmp;
-        new_node -> next = NULL;
-        (*head_b) -> next = new_node;
-        (*head_b) = (*head_b) -> next;
+        while((*first_b)->next->next) // Until last-1
+        {
+            (*first_b) = (*first_b)->next;
+        }
+        (*first_b) -> next = NULL; // set the head-1 to null
+        (*head_b) -> next = save;
+        save = (*head_b);
+        (*head_b) = (*first_b); // ok
+        (*first_b) = save;
     }
+    return ;
 }
 
 void rrr(stack_a **head_a, stack_a **first_a, stack_b **head_b, stack_b **first_b)

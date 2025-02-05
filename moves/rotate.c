@@ -3,62 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fben-ham <fben-ham@student.42-angouleme    +#+  +:+       +#+        */
+/*   By: fben-ham <fben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 14:00:44 by fben-ham          #+#    #+#             */
-/*   Updated: 2024/12/27 14:26:14 by fben-ham         ###   ########.fr       */
+/*   Updated: 2025/02/05 05:22:35 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void ra(stack_a **head_a, stack_a *first_a)
+void ra(stack_a **head_a, stack_a **first_a)
 {
-    int tmp;
-    int tmp2;
+    stack_a *save;
 
-    tmp = 0;
-    tmp2 = 0;
-    if(list_len_a(first_a))
+    save = (*first_a);
+
+    if((*first_a)->next)
     {
-        tmp = first_a -> val;
-        first_a -> val = (*head_a) -> val;
-        first_a = first_a -> next;
-        while(first_a)
-        {
-            tmp2 = first_a -> val;
-            first_a -> val = tmp;
-            tmp = tmp2;
-            first_a = first_a -> next;
-        }   
+        (*first_a) = (*first_a)->next;
+        (*head_a) -> next = save;
+        (*head_a) = (*head_a) -> next;
+        (*head_a) -> next = NULL;
     }
     return ;
 }
 
-void rb(stack_b **head_b, stack_b *first_b)
+void rb(stack_b **head_b, stack_b **first_b)
 {
-    int tmp;
-    int tmp2;
+    stack_b *save;
 
-    tmp = 0;
-    tmp2 = 0;
-    if(list_len_b(first_b))
+    save = (*first_b);
+
+    if((*first_b)->next)
     {
-        tmp = first_b -> val;
-        first_b -> val = (*head_b) -> val;
-        first_b = first_b -> next;
-        while(first_b)
-        {
-            tmp2 = first_b -> val;
-            first_b -> val = tmp;
-            tmp = tmp2;
-            first_b = first_b -> next;
-        }   
+        (*first_b) = (*first_b)->next;
+        (*head_b) -> next = save;
+        (*head_b) = (*head_b) -> next;
+        (*head_b) -> next = NULL;
     }
     return ;
 }
 
-void rr(stack_a **head_a, stack_a *first_a, stack_b **head_b, stack_b *first_b)
+void rr(stack_a **head_a, stack_a **first_a, stack_b **head_b, stack_b **first_b)
 {
     ra(head_a, first_a);
     rb(head_b, first_b);
