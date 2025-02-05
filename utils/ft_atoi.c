@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fben-ham <fben-ham@student.42-angouleme    +#+  +:+       +#+        */
+/*   By: fben-ham <fben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:50:45 by fben-ham          #+#    #+#             */
-/*   Updated: 2024/12/24 15:57:12 by fben-ham         ###   ########.fr       */
+/*   Updated: 2025/02/05 06:45:58 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ stack_a *ft_atoi(stack_a *first, stack_a *head, const char *string, t_data **dat
     int nb = 0;
     int sign = 1;
     stack_a *tmp;
+    //stack_a *tmp_prev;
 
     if (*string == '-' || *string == '+') {
         if (*string == '-')
@@ -56,6 +57,7 @@ stack_a *ft_atoi(stack_a *first, stack_a *head, const char *string, t_data **dat
             tmp = malloc(sizeof(stack_a));
             tmp -> val = nb * sign;
             tmp -> next = NULL;
+            tmp -> prev = head;
             head -> next = tmp;
             head = head->next;
             highest_number(nb, data);

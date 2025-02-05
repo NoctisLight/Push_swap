@@ -5,11 +5,13 @@
 typedef struct nodea{
     int val;
     struct nodea *next;
+    struct nodea *prev;
 } stack_a;
 
 typedef struct nodeb{
     int val;
     struct nodeb *next;
+    struct nodeb *prev;
 } stack_b;
 
 typedef struct s_data{

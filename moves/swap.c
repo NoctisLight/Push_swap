@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fben-ham <fben-ham@student.42-angouleme    +#+  +:+       +#+        */
+/*   By: fben-ham <fben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 16:20:58 by fben-ham          #+#    #+#             */
-/*   Updated: 2024/12/26 18:38:19 by fben-ham         ###   ########.fr       */
+/*   Updated: 2025/02/05 05:25:10 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-
+///////// NEED TO IMRPOVE THE MAIN FUNCTIONS AND DELETE BOTH LIST_LEN_FCT
 int list_len_a(stack_a *first_a) // stack_a used
 {
     int i;
