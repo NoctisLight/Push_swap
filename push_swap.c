@@ -6,7 +6,7 @@
 /*   By: fben-ham <fben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:51:43 by fben-ham          #+#    #+#             */
-/*   Updated: 2025/02/05 05:26:19 by fben-ham         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:54:32 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,9 @@ void check_ifok(char *all_in_one)
     head_b = malloc(sizeof(stack_b));
     first_a = head_a;
     first_b = head_b;
-    
+    //ft_printf("HEAD OO : %d\n", head);
     data->max = 0;
+    
     i = 0;
     while(tab[i]) // send each number to atoi  
     {   
@@ -55,7 +56,9 @@ void check_ifok(char *all_in_one)
         }
         i++;
     }
+    //head_a = head_a->next;
     first_a = first_a->next; // skip the random 0 at the beginning of the list
+    //head_a = head_a ->next;
     //first_b = first_b->next;
     /*head = first_a; // reset head to first
 
@@ -78,20 +81,22 @@ void check_ifok(char *all_in_one)
     }*/
     //ft_printf("\nList B :\n");
     //head_a = first_a;
-    ra(&head_a, &first_a);
+    sa(&head_a, first_a);
+    //pa(&head_a, &head_b, first_b);
+    //ra(&head_a, &first_a);
     ft_printf("HEAD : %d\n", head_a -> val);
     ft_printf("\nList A :\n");
-    head_a = first_a;
+    //head_a = first_a;
     while(head_a)
     {
         printf("%d\n", head_a->val);
-        head_a = head_a->next;
+        head_a = head_a->prev;
     }
     ft_printf("\nList B :\n");
     while(head_b)
     {
         printf("%d\n", head_b->val);
-        head_b = head_b->next;
+        head_b = head_b->prev;
     }
     free(tab);
     ft_printf("\n\nThe highest number is : %d", (*data).max);
