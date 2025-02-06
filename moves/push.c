@@ -6,7 +6,7 @@
 /*   By: fben-ham <fben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 13:44:04 by fben-ham          #+#    #+#             */
-/*   Updated: 2025/02/05 07:42:34 by fben-ham         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:15:36 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void pa(stack_a **head_a, stack_b **head_b, stack_b *first_b)
         new_node = malloc(sizeof(stack_a));
         new_node -> val = (*head_b) -> val;
         new_node -> next = NULL;
+        new_node -> prev = (*head_a); // link the current last b node before the push
         while(i) // will get the lastnode-1 temporarly before deleting it
         {
             first_b = first_b -> next;
@@ -48,6 +49,7 @@ void pb(stack_a **head_a, stack_b **head_b, stack_a *first_a)
         new_node = malloc(sizeof(stack_b));
         new_node -> val = (*head_a) -> val;
         new_node -> next = NULL;
+        new_node -> prev = (*head_b); // link the current last b node before the push
         while(i) // will get the lastnode-1 temporarly before deleting it
         {
             first_a = first_a -> next;

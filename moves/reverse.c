@@ -6,7 +6,7 @@
 /*   By: fben-ham <fben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 18:53:43 by fben-ham          #+#    #+#             */
-/*   Updated: 2025/02/05 04:39:55 by fben-ham         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:32:22 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void rra(stack_a **head_a, stack_a **first_a)
             (*first_a) = (*first_a)->next;
         }
         (*first_a) -> next = NULL; // set the head-1 to null
+        save -> prev = (*head_a); //
         (*head_a) -> next = save;
         save = (*head_a);
         (*head_a) = (*first_a); // ok
@@ -45,6 +46,7 @@ void rrb(stack_b **head_b, stack_b **first_b)
             (*first_b) = (*first_b)->next;
         }
         (*first_b) -> next = NULL; // set the head-1 to null
+        save -> prev = (*head_b); // 
         (*head_b) -> next = save;
         save = (*head_b);
         (*head_b) = (*first_b); // ok
