@@ -6,12 +6,11 @@
 /*   By: fben-ham <fben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:50:45 by fben-ham          #+#    #+#             */
-/*   Updated: 2025/02/06 15:55:55 by fben-ham         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:00:11 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
 
 int check_doubles(stack_a *first, int nb)
 {
@@ -33,6 +32,8 @@ void highest_number(int num, t_data **data)
 {
     if (num > (*data)->max)
         (*data)->max = num;
+    else if(num < (*data)->min)
+        (*data)->min = num;
 }
 
 stack_a *ft_atoi(stack_a *first, stack_a *head, const char *string, t_data **data)
@@ -40,8 +41,7 @@ stack_a *ft_atoi(stack_a *first, stack_a *head, const char *string, t_data **dat
     int nb = 0;
     int sign = 1;
     stack_a *tmp;
-    //stack_a *tmp_prev;
-
+    
     if (*string == '-' || *string == '+') {
         if (*string == '-')
             sign = -1;
@@ -60,7 +60,7 @@ stack_a *ft_atoi(stack_a *first, stack_a *head, const char *string, t_data **dat
             tmp -> prev = head;
             head -> next = tmp;
             head = head->next;
-            highest_number(nb, data);
+            highest_number(nb * sign, data);
             return (head);
         }
     }

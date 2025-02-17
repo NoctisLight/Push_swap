@@ -1,7 +1,8 @@
 SRCS = $(wildcard *.c) \
        $(wildcard utils/*.c) \
        $(wildcard utils/ft_printf/*.c) \
-	   $(wildcard moves/*.c)
+	   $(wildcard moves/*.c) \
+	   $(wildcard algorithm/*.c)
 	   
         
 

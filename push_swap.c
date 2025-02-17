@@ -6,7 +6,7 @@
 /*   By: fben-ham <fben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:51:43 by fben-ham          #+#    #+#             */
-/*   Updated: 2025/02/06 16:54:32 by fben-ham         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:52:22 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,14 @@ void check_ifok(char *all_in_one)
     t_data *data;
     data = malloc(sizeof(t_data));
     tab = ft_split(all_in_one, ' '); // split each numbers in a tab ready to be send to atoi
-    head_a = malloc(sizeof(stack_a));
+    head_a = malloc(sizeof(stack_a)); // Memory 
     head_b = malloc(sizeof(stack_b));
+    head_a = head_a -> next; // Next the first node -> Segfault <3
     first_a = head_a;
     first_b = head_b;
     //ft_printf("HEAD OO : %d\n", head);
-    data->max = 0;
-    
+    data->max = -2147483648; //  INT MAX for init comparaison
+    data->min = 2147483647; //  INT MAX for init comparaison
     i = 0;
     while(tab[i]) // send each number to atoi  
     {   
@@ -56,7 +57,6 @@ void check_ifok(char *all_in_one)
         }
         i++;
     }
-    //head_a = head_a->next;
     first_a = first_a->next; // skip the random 0 at the beginning of the list
     //head_a = head_a ->next;
     //first_b = first_b->next;
@@ -81,7 +81,7 @@ void check_ifok(char *all_in_one)
     }*/
     //ft_printf("\nList B :\n");
     //head_a = first_a;
-    sa(&head_a, first_a);
+    less_than_3(&head_a);
     //pa(&head_a, &head_b, first_b);
     //ra(&head_a, &first_a);
     ft_printf("HEAD : %d\n", head_a -> val);
@@ -90,7 +90,7 @@ void check_ifok(char *all_in_one)
     while(head_a)
     {
         printf("%d\n", head_a->val);
-        head_a = head_a->prev;
+      head_a = head_a->prev;
     }
     ft_printf("\nList B :\n");
     while(head_b)
@@ -100,6 +100,7 @@ void check_ifok(char *all_in_one)
     }
     free(tab);
     ft_printf("\n\nThe highest number is : %d", (*data).max);
+    ft_printf("\n\nThe lowest number is : %d", (*data).min);
 }
 
 int main(int agc, char **agv)
