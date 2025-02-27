@@ -6,7 +6,7 @@
 /*   By: fben-ham <fben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 16:20:58 by fben-ham          #+#    #+#             */
-/*   Updated: 2025/02/10 15:39:27 by fben-ham         ###   ########.fr       */
+/*   Updated: 2025/02/27 15:33:38 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,46 +47,32 @@ int list_len_b(stack_b *first_b) // stack_b used
     return (i);
 }
 
-void sa(stack_a **head_a, stack_a *first_a)
+void sa(stack_a **head_a)
 {
-    int len;
     int valswap;
-    int i = 0;
 
-    len = list_len_a(first_a);
-    if(len < 2)
+    if(!(*head_a)->prev)
         return ;
-    while(len-2 > i)
-    {
-        (first_a) = (first_a)->next;
-        i++;
-    }
-    valswap = (first_a)-> val; // keep the head-1 val temporarily
-    (first_a) -> val = (*head_a) -> val;
-    (*head_a) -> val = valswap;
+    
+    valswap = (*head_a)-> val; // keep the head val temporarily
+    (*head_a) -> val = (*head_a) -> prev -> val;
+    (*head_a) -> prev -> val = valswap;
 }
 
-void sb(stack_b **head_b, stack_b *first_b)
+void sb(stack_b **head_b)
 {
-    int len;
     int valswap;
-    int i = 0;
 
-    len = list_len_b(first_b);
-    if(len < 2)
+    if(!(*head_b)->prev)
         return ;
-    while(len-2 > i)
-    {
-        first_b = first_b->next;
-        i++;
-    }
-    valswap = first_b -> val; // keep the head-1 val temporarily
-    first_b -> val = (*head_b) -> val;
-    (*head_b) -> val = valswap;
+    
+    valswap = (*head_b)-> val; // keep the head val temporarily
+    (*head_b) -> val = (*head_b) -> prev -> val;
+    (*head_b) -> prev -> val = valswap;
 }
 
-void ss(stack_a **head_a, stack_a *first_a, stack_b **head_b, stack_b *first_b) // execute both functions
+void ss(stack_a **head_a, stack_b **head_b) // execute both functions
 {
-    sa(head_a, first_a);
-    sb(head_b, first_b);
+    sa(head_a);
+    sb(head_b);
 }
