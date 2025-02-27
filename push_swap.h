@@ -18,11 +18,12 @@ typedef struct s_data{
     int max;
     int min;
     int cost;
+    int nb_nodes;
 } t_data;
 
 
 int	ft_printf(const char *format, ...);
-stack_a *ft_atoi(stack_a *first, stack_a *head, const char *string, t_data **data);
+int ft_atoi(stack_a *first, stack_a **head, const char *string, t_data **data);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 int	ft_strlen(const char *s);

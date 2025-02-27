@@ -16,16 +16,16 @@ NAME := push_swap
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME) 
+	@$(CC) $(OBJS) -o $(NAME) 
 
 %.o : %.c
-	$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

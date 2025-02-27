@@ -6,7 +6,7 @@
 /*   By: fben-ham <fben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:50:45 by fben-ham          #+#    #+#             */
-/*   Updated: 2025/02/17 18:00:11 by fben-ham         ###   ########.fr       */
+/*   Updated: 2025/02/27 15:12:39 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,11 @@ void highest_number(int num, t_data **data)
         (*data)->min = num;
 }
 
-stack_a *ft_atoi(stack_a *first, stack_a *head, const char *string, t_data **data)
+int ft_atoi(stack_a *first, stack_a **head, const char *string, t_data **data)
 {
     int nb = 0;
     int sign = 1;
     stack_a *tmp;
-    
     if (*string == '-' || *string == '+') {
         if (*string == '-')
             sign = -1;
@@ -52,19 +51,31 @@ stack_a *ft_atoi(stack_a *first, stack_a *head, const char *string, t_data **dat
             nb = nb * 10 + (*string - '0');
             string++;
         }
+        if((*data) -> nb_nodes == 0) // there is probably a better way
+        {
+            if (check_doubles(first, nb))
+            {
+                (*head) -> val = nb * sign;
+                (*head) -> next = NULL;
+                (*head) -> prev = NULL;
+                highest_number(nb * sign, data);
+                (*data) -> nb_nodes +=1;
+                return 1;
+            }
+        }
         if (check_doubles(first, nb))
         {
             tmp = malloc(sizeof(stack_a));
             tmp -> val = nb * sign;
             tmp -> next = NULL;
-            tmp -> prev = head;
-            head -> next = tmp;
-            head = head->next;
+            tmp -> prev = (*head);
+            (*head) -> next = tmp;
+            (*head) = (*head)->next;
             highest_number(nb * sign, data);
-            return (head);
+            return 1;
         }
     }
-    return (0);
+    return 0;
 }
 
 
