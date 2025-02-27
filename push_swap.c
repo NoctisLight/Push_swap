@@ -6,7 +6,7 @@
 /*   By: fben-ham <fben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:51:43 by fben-ham          #+#    #+#             */
-/*   Updated: 2025/02/27 15:02:04 by fben-ham         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:19:11 by fben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,14 @@ void	check_ifok(char *all_in_one)
 	first_b = head_b;
 	// ft_printf("HEAD OO : %d\n", head);
 	data->max = -2147483648; //  INT MAX for init comparaison
-	data->min = 214748366;   //  INT MAX for init comparaison
+	data->min = 2147483647;   //  INT MAX for init comparaison
 	i = 0;
 	while (tab[i]) // send each number to atoi
 	{
 		if(!ft_atoi(first_a, &head_a, tab[i], &data))
-		{ft_printf("Error\n");
-				return ;
+		{
+			ft_printf("Error\n");
+			return ;
 		}
 		// try to create a new node.
 		/*if (new_node)

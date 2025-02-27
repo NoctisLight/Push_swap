@@ -20,7 +20,7 @@ void less_than_3(stack_a **head_a) // funny sort with dumb reflexion
                 if((*head_a)->val < (*head_a)->prev->val) // if current < previous
                 {
                     sa(head_a);
-                    ft_printf("sa");
+                    ft_printf("sa\n");
                 }
                 *head_a = (*head_a)->prev; // Go to Prev node
         }
